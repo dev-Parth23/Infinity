@@ -7,8 +7,8 @@ import Signup from "./pages/Signup";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-black text-white flex overflow-hidden">
-      {/* <Login /> */}
+    <div className="min-h-screen text-white flex overflow-hidden">
+      <Login />
 <Signup />
       {/* <Sidebar />
       <Routes>

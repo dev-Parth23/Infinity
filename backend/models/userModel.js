@@ -8,6 +8,7 @@ const messageSchema = new mongoose.Schema(
     email: {
       type: String,
       trim: true,
+      unique : true,
     },
     password: {
       type: String,
@@ -15,8 +16,8 @@ const messageSchema = new mongoose.Schema(
     },
     pic: {
       type: String,
-      required: true,
-      default: "https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png",
+      default:
+        "https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png",
     },
   },
   {
