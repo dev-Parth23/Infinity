@@ -1,3 +1,4 @@
+import expressAsyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 import {
   generateAccessToken,
@@ -80,3 +81,18 @@ export const refreshAccessToken = async (req, res) => {
     res.sendStatus(403);
   }
 };
+
+export const allUsers = expressAsyncHandler(async (req, res) => {
+  const keyword = req.query.search
+    ? {
+        $or: [
+          { name: { $regex: req.query.search, $options: "i" } },
+          { email: { $regex: req.query.search, $options: "i" } },
+        ],
+      }
+    : {};
+
+  console.log(keyword);
+  const users = await User.find(keyword).find({ _id: { $ne : req.user._id } });
+  res.send(users);
+});
