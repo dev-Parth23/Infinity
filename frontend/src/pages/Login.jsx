@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ChatState } from "../context/ChatProvider";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { setUser } = ChatState();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,9 +29,10 @@ const Login = () => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
 
-      localStorage.setItem("accessToken", data.accessToken);
       localStorage.setItem("userInfo", JSON.stringify(data));
+      localStorage.setItem("accessToken", data.accessToken);
 
+      setUser(data);
       setLoading(false);
       navigate("/");
     } catch (error) {
