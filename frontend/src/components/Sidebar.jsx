@@ -19,13 +19,11 @@ const Sidebar = () => {
       
       "
     >
-      {/* TOP */}
       <div className="flex flex-col items-center gap-7">
-        {/* Logo */}
         <div className="relative mb-2">
           <div className="absolute inset-0 blur-xl rounded-full" />
           <div className="relative text-xl font-bold text-white tracking-wide">
-            △
+            💬
           </div>
         </div>
 
@@ -36,7 +34,6 @@ const Sidebar = () => {
         <NavItem to="/" icon={Calendar} label="Calendar" /> */}
       </div>
 
-      {/* BOTTOM */}
       <div className="flex flex-col items-center gap-6">
         <NavItem to="/" icon={User} label="Profile" />
         <NavItem to="/" icon={Settings} label="Settings" />
