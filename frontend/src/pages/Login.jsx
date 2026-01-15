@@ -42,12 +42,12 @@ const Login = () => {
 
   return (
     <section className="relative w-screen h-screen bg-[#141414] px-4 py-6 sm:px-10 sm:py-10 lg:p-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-transparent to-black/80 z-0" />
+      <div className="absolute inset-0 from-black via-transparent to-black/80 z-0" />
 
       <div
         className="
           relative w-full h-full
-          rounded-2xl lg:rounded-[32px]
+          rounded-2xl 
           overflow-hidden
           shadow-[0_40px_120px_rgba(0,0,0,0.6)]
           z-10

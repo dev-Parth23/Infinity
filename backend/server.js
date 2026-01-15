@@ -7,6 +7,7 @@ connectDB();
 import http from "http";
 import { Server } from "socket.io";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 app.use(express.json());
 app.use(cookieParser());
@@ -24,6 +25,12 @@ app.get("/", function (req, res) {
 app.use('/api/user', userRoutes);
 app.use('/api/chat', chatRoutes);
 
+app.use(cors({
+  origin: [
+    "http://infinity-fe.s3-website-ap-southeast-2.amazonaws.com"
+  ],
+  credentials: true
+}));
 
 const PORT = Number(process.env.PORT) || 5000;
 const io = new Server(server, {
